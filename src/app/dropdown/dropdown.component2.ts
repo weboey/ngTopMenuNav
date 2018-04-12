@@ -8,8 +8,11 @@ import { Component ,Input} from '@angular/core';
 @Component({
   selector: 'nz-demo-dropdown-cascading',
   template: `
-
-      <ul nz-menu style="width: 240px;" [nzMode]="'vertical'">
+    <nz-dropdown>
+      <a class="ant-dropdown-link" nz-dropdown>
+        Cascading menu <i class="anticon anticon-down"></i>
+      </a>
+      <ul nz-menu>
         <li nz-menu-item>1st menu item</li>
         <li nz-menu-item>2nd menu item</li>
         <li nz-submenu>
@@ -20,24 +23,7 @@ import { Component ,Input} from '@angular/core';
           </ul>
         </li>
       </ul>
-
-      <ul nz-menu style="width: 240px;" [nzMode]="'inline'">
-        <li nz-menu-item>1st menu item</li>
-        <li nz-menu-item>2nd menu item</li>
-        <li nz-submenu>
-          <span title>sub menu</span>
-          <ul>
-            <li nz-submenu><span title>sub menu222</span>
-               <ul>
-                    <li nz-menu-item>11rd menu item2222222222222</li>
-                    <li nz-menu-item>12th menu item</li>
-              </ul>
-              </li>
-            <li nz-menu-item>4th menu item</li>
-          </ul>
-        </li>
-      </ul>
-
+    </nz-dropdown>
 
      <nz-dropdown *ngFor="let item of menu">
        <a class="ant-dropdown-link" nz-dropdown>
@@ -72,11 +58,14 @@ export class DropDownComponent {
 @Component({
   selector: 'tree-view',
   template: `
-
-        <ul nz-menu style="width: 240px;" [nzMode]="'inline'">
-          <tree-item *ngFor="let itemChild of menu" [item]="itemChild"></tree-item>
+     <nz-dropdown *ngFor="let item of menu">
+       <a class="ant-dropdown-link" nz-dropdown>
+          {{item.name}} <i class="anticon anticon-down"></i>
+        </a>
+        <ul nz-menu>
+          <tree-item *ngFor="let itemChild of item?.subMenu" [item]="itemChild"></tree-item>
         </ul>
-
+    </nz-dropdown>
     `,
   styles  : []
 })
@@ -110,6 +99,7 @@ export class TreeViewItemComponent{
   menu = menu;
 
   isLeaf = function(){
+
     return !this.item.subMenu || !this.item.subMenu.length;
   };
 }

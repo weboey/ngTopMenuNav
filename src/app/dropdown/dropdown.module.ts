@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule} from '@angular/common';
-import { DropDownComponent } from './dropdown.component';
+import { DropDownComponent,TreeViewComponent,TreeViewItemComponent } from './dropdown.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 @NgModule({
   imports: [
     CommonModule,NgZorroAntdModule
   ],
   declarations: [
-    DropDownComponent
+    DropDownComponent,TreeViewComponent,TreeViewItemComponent
   ],
-  exports:[DropDownComponent],
+  exports:[DropDownComponent,TreeViewComponent,TreeViewItemComponent],
   providers: [],
 })
 export class DropDownModule { }

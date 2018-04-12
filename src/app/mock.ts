@@ -37,7 +37,26 @@ export const MENUS = [
           { name: '属性型指令', type: "link", url: "detail/attribute-directives" },
           { name: '结构型指令', type: "link", url: "detail/structural-directives" },
           { name: '管道', type: "link", url: "detail/pipes" },
-          { name: '动画', type: "link", url: "detail/animations" },
+          { name: '动画', type: "link", url: "detail/animations",
+            subMenu: [
+              { name: '用户输入', type: "link", url: "detail/user-input",
+                subMenu: [
+                  { name: 'NgModule', type: "link", url: "detail/ngmodule",
+                    subMenu: [
+                      { name: '依赖注入', type: "link", url: "detail/dependency-injection" },
+                      { name: '多级注入器', type: "link", url: "detail/hierarchical-dependency-injection" },
+                      { name: 'DI 实例技巧', type: "link", url: "detail/dependency-injection-in-action" }
+                    ]
+                  },
+                  { name: 'NgModule 常见问题', type: "link", url: "detail/ngmodule-faq" }
+                ]
+              },
+              { name: '模板驱动表单', type: "link", url: "detail/forms" },
+              { name: '表单验证', type: "link", url: "detail/form-validation" },
+              { name: '响应式表单', type: "link", url: "detail/reactive-forms" },
+              { name: '动态表单', type: "link", url: "detail/dynamic-form" }
+            ]
+          },
         ]
       },
       {
@@ -87,32 +106,19 @@ export const MENUS = [
       { name: '语言服务', type: "link", url: "detail/language-service" },
       { name: '安全', type: "link", url: "detail/security" },
       {
-        name: '环境设置与部署',
+        name: '环境',
         type: "button",
         expand: false,
         subMenu: [
-          { name: '搭建本地开发环境', type: "link", url: "detail/setup" },
-          { name: '搭建方式剖析', type: "link", url: "detail/setup-systemjs-anatomy" },
-          { name: '浏览器支持', type: "link", url: "detail/browser-support" },
+          { name: '搭建', type: "link", url: "detail/setup" },
+          { name: '搭建', type: "link", url: "detail/setup-systemjs-anatomy" },
+          { name: '浏览', type: "link", url: "detail/browser-support" },
           { name: 'npm 包', type: "link", url: "detail/npm-packages" },
-          { name: 'TypeScript 配置', type: "link", url: "detail/typescript-configuration" },
-          { name: '预 (AoT) 编译器', type: "link", url: "detail/aot-compiler" },
-          { name: '预 (AoT) 编译器', type: "link", url: "detail/metadata" },
+          { name: 'Typ', type: "link", url: "detail/typescript-configuration" },
+          { name: '预', type: "link", url: "detail/aot-compiler" },
           { name: '部署', type: "link", url: "detail/deployment" }
         ]
-      },
-      {
-        name: '升级',
-        type: "button",
-        expand: false,
-        subMenu: [
-          { name: '从 AngularJS 升级', type: "link", url: "detail/upgrade" },
-          { name: '升级速查表', type: "link", url: "detail/ajs-quick-reference" }
-        ]
-      },
-      { name: 'Visual Studio 2015 快速上手', type: "link", url: "detail/visual-studio-2015" },
-      { name: '风格指南', type: "link", url: "detail/styleguide" },
-      { name: '词汇表', type: "link", url: "detail/glossary" }
+      }
     ]
   },
   { name: 'API 参考手册', type: "link", url: "detail/api" }
